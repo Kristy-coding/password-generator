@@ -1,8 +1,17 @@
 // Assignment code here
 
-// as the user how many characters they would like their password to contain
+var specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var numbers = "123456789"
+var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var lowercaseLetters = "abcdefghijklmnop"
+
+var includedCharacters = ''
+
+// ask the user how many characters they would like their password to contain
 var getPassowrdLength = function (){
   var length = window.prompt("How many characters would you like your password to contain?");
+  length = parseInt (length);
+  console.log( typeof parseInt (length));
   if (length < 8) {
     window.alert ("Your password must me as least 8 characters. Please try again.");
     return getPassowrdLength();
@@ -24,8 +33,8 @@ var getPassowrdLength = function (){
 
 getPassowrdLength();
 
-// ask user if they want to include special characters 
-var includeSpecialCharacters = window.confirm("Click OK to confirm including special characters.");
+// // ask user if they want to include special characters 
+ var includeSpecialCharacters = window.confirm("Click OK to confirm including special characters.");
   if(includeSpecialCharacters) {
     //then special characters should take on the value of this string array [ " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]
   }
