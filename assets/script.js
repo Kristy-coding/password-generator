@@ -79,7 +79,7 @@ var includeSpecialCharacters = window.confirm("Click OK to confirm including spe
 
 
 
-
+///
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
