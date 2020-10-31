@@ -1,6 +1,7 @@
 // Assignment code here
 
 
+
 // ask the user how many characters they would like their password to contain
 var getPassowrdLength = function (){
   var length = window.prompt("How many characters would you like your password to contain?");
@@ -91,22 +92,35 @@ var passwordLength = getPassowrdLength();
 
  password = generatePassword();
  console.log(password); 
-alert("your new password is: " + password);
+
+ // add password to textbox/display
+document.getElementById("password").value = password;
 
 
 
 
-// Get references to the #generate element
- var generateBtn = document.querySelector("#generate");
+// // Get references to the #generate element
+//   var generateBtn = document.querySelector("#generate");
 
- // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-     var passwordText = document.querySelector("#password");
+//  // Write password to the #password input
+//  function writePassword() {
+//     password = generatePassword();
+//     var passwordText = document.querySelector("#password");
 
-passwordText.value = password;
+//     passwordText.value = password;
+ 
 
- }
+// Add event listener to generate button
+//  generateBtn.addEventListener("click", writePassword);
+//  };
 
- // Add event listener to generate button
- generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
+// add password to textbox/display
+//document.getElementById("password").value = password;
