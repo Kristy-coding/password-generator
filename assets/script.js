@@ -1,5 +1,3 @@
-// Assignment code here
-
 
 
 // ask the user how many characters they would like their password to contain
@@ -26,7 +24,7 @@ var getPassowrdLength = function (){
 };
 
 // genereate password function 
-var generatePassword = function(){ 
+var generatePassword = function() { 
 
 var specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var numbers = "123456789";
@@ -90,37 +88,12 @@ var passwordLength = getPassowrdLength();
 };
 
 
- password = generatePassword();
- console.log(password); 
-
- // add password to textbox/display
-document.getElementById("password").value = password;
-
-
-
-
-// // Get references to the #generate element
-//   var generateBtn = document.querySelector("#generate");
-
-//  // Write password to the #password input
-//  function writePassword() {
-//     password = generatePassword();
-//     var passwordText = document.querySelector("#password");
-
-//     passwordText.value = password;
  
+// call function from click and add text to textbox 
+function writePassword (){
+  password = generatePassword();
 
-// Add event listener to generate button
-//  generateBtn.addEventListener("click", writePassword);
-//  };
+  // add password to textbox/display
+document.getElementById("password").value = password;
+}
 
-
-
-
-
-
-
-
-
-// add password to textbox/display
-//document.getElementById("password").value = password;
