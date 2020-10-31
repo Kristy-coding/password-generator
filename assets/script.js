@@ -3,8 +3,8 @@
 
 // ask the user how many characters they would like their password to contain
 var getPassowrdLength = function (){
-  
   var length = window.prompt("How many characters would you like your password to contain?");
+ 
   if (length < 8) {
     window.alert ("Your password must be as least 8 characters. Please try again.");
     return getPassowrdLength();
@@ -13,21 +13,18 @@ var getPassowrdLength = function (){
     window.alert("Your password must be less than 129 characters. Please try again.");
     return getPassowrdLength();
   }
-  if (typeof length === "string"){
+  if (length >= 8 && length <= 128) {
+     console.log(length);
+     return length;
+  }
+  else{
     window.alert("Password length must be provided as a number. Please try again");
     return getPassowrdLength();
-  }
-  else {
-    console.log(length);
-    return length;  
   }
     
 };
 
-
-//getPassowrdLength();
-
-
+// genereate password function 
 var generatePassword = function(){ 
 
 var specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
@@ -36,8 +33,11 @@ var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowercaseLetters = "abcdefghijklmnop";
 
 var selectedCharacters = '';
+var password = '';
 
-// // ask user if they want to include special characters 
+var passwordLength = getPassowrdLength();
+
+ // ask user if they want to include special characters 
  var includeSpecialCharacters = window.confirm("Click OK to confirm including special characters.");
   if(includeSpecialCharacters) { selectedCharacters += specialCharacters 
   }
@@ -66,61 +66,47 @@ var selectedCharacters = '';
   console.log(selectedCharacters); 
   console.log(selectedCharacters.length); 
 
+
   if (selectedCharacters === null || selectedCharacters === "") {
     window.alert("You must select at least one character type. Please try again.");
     return generatePassword();
   }
 
-  // loop through selectedCharacters string as many times as password length 
-  for (i = 0; i<length; i++) {
-
-    
-  //str.charAt(Math.floor(Math.random() * str.length));
-  // var lengthOfPassword = 60;
-//   var lengthOfCharArray = 81;
-//   for(var i = 0; i < lengthOfPassword; i++) {
-//   console.log(Math.floor(Math.random() * lengthOfCharArray) + 1);
-
-// var lengthOfPassword = 60;
-// var lengthOfCharArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// for(var i = 0; i < lengthOfPassword; i++) {
-//   console.log(lengthOfCharArray.charAt(Math.floor(Math.random() * lengthOfCharArray.length)));
-// }
-// }
-  }
-
-};
-generatePassword();
-
+  // loop through selectedCharacters string as many times as password length and randomly select a character fromt the string each time 
   
+  for (var i = 0; i<passwordLength; i++) {
+
+    //charAt is taking the number that Math.random is slecting and mapping that number to an index on the string, charAt then returns the string character at that index 
+
+    randomCharacters = (selectedCharacters.charAt(Math.floor(Math.random() * selectedCharacters.length)));
+    console.log(randomCharacters);
+
+    password += randomCharacters
+    
+  }
+  console.log(password);
+  return password;
+};
+
+
+ password = generatePassword();
+ console.log(password); 
+alert("your new password is: " + password);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-///
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+ var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+ // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+     var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+passwordText.value = password;
 
-}
+ }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+ // Add event listener to generate button
+ generateBtn.addEventListener("click", writePassword);
