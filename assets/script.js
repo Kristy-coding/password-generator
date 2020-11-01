@@ -3,7 +3,6 @@
 // ask the user how many characters they would like their password to contain
 var getPassowrdLength = function (){
   var length = window.prompt("How many characters would you like your password to contain?");
- 
   if (length < 8) {
     window.alert ("Your password must be as least 8 characters. Please try again.");
     return getPassowrdLength();
@@ -20,8 +19,9 @@ var getPassowrdLength = function (){
     window.alert("Password length must be provided as a number. Please try again");
     return getPassowrdLength();
   }
-    
-};
+   
+ };
+ 
 
 // genereate password function 
 var generatePassword = function() { 
@@ -96,4 +96,6 @@ function writePassword (){
   // add password to textbox/display
 document.getElementById("password").value = password;
 }
+
+document.querySelector("#generate").addEventListener("click",writePassword);
 
